@@ -4,11 +4,9 @@ using SimmonsVoss.RegistrationApp.MultiTenancy;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Emailing;
-using Volo.Abp.Identity;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
-using Volo.Abp.OpenIddict;
 using Volo.Abp.SettingManagement;
 
 namespace SimmonsVoss.RegistrationApp;
@@ -17,8 +15,6 @@ namespace SimmonsVoss.RegistrationApp;
     typeof(RegistrationAppDomainSharedModule),
     typeof(AbpAuditLoggingDomainModule),
     typeof(AbpBackgroundJobsDomainModule),
-    typeof(AbpIdentityDomainModule),
-    typeof(AbpOpenIddictDomainModule),
     typeof(AbpSettingManagementDomainModule),
     typeof(AbpEmailingModule)
 )]
