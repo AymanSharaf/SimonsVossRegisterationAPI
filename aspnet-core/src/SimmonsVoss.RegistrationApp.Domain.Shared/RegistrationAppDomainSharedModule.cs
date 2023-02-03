@@ -4,7 +4,6 @@ using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
-using Volo.Abp.OpenIddict;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
@@ -14,7 +13,6 @@ namespace SimmonsVoss.RegistrationApp;
 [DependsOn(
     typeof(AbpAuditLoggingDomainSharedModule),
     typeof(AbpBackgroundJobsDomainSharedModule),
-    typeof(AbpOpenIddictDomainSharedModule),
     typeof(AbpSettingManagementDomainSharedModule)
     )]
 public class RegistrationAppDomainSharedModule : AbpModule

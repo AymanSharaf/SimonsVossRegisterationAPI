@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Shouldly;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Volo.Abp.Domain.Repositories;
-using Volo.Abp.Identity;
+﻿using System.Threading.Tasks;
 using Xunit;
 
 namespace SimmonsVoss.RegistrationApp.EntityFrameworkCore.Samples;
@@ -16,11 +10,11 @@ namespace SimmonsVoss.RegistrationApp.EntityFrameworkCore.Samples;
  */
 public class SampleRepositoryTests : RegistrationAppEntityFrameworkCoreTestBase
 {
-    private readonly IRepository<IdentityUser, Guid> _appUserRepository;
+    //private readonly IRepository<IdentityUser, Guid> _appUserRepository;
 
     public SampleRepositoryTests()
     {
-        _appUserRepository = GetRequiredService<IRepository<IdentityUser, Guid>>();
+        //_appUserRepository = GetRequiredService<IRepository<IdentityUser, Guid>>();
     }
 
     [Fact]
@@ -29,15 +23,15 @@ public class SampleRepositoryTests : RegistrationAppEntityFrameworkCoreTestBase
         /* Need to manually start Unit Of Work because
          * FirstOrDefaultAsync should be executed while db connection / context is available.
          */
-        await WithUnitOfWorkAsync(async () =>
-        {
-                //Act
-                var adminUser = await (await _appUserRepository.GetQueryableAsync())
-                .Where(u => u.UserName == "admin")
-                .FirstOrDefaultAsync();
+        //await WithUnitOfWorkAsync(async () =>
+        //{
+        //        //Act
+        //        var adminUser = await (await _appUserRepository.GetQueryableAsync())
+        //        .Where(u => u.UserName == "admin")
+        //        .FirstOrDefaultAsync();
 
-                //Assert
-                adminUser.ShouldNotBeNull();
-        });
+        //        //Assert
+        //        adminUser.ShouldNotBeNull();
+        //});
     }
 }

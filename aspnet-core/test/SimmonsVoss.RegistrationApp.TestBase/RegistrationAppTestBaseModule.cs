@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp;
-using Volo.Abp.Authorization;
 using Volo.Abp.Autofac;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Data;
@@ -12,7 +11,6 @@ namespace SimmonsVoss.RegistrationApp;
 [DependsOn(
     typeof(AbpAutofacModule),
     typeof(AbpTestBaseModule),
-    typeof(AbpAuthorizationModule),
     typeof(RegistrationAppDomainModule)
     )]
 public class RegistrationAppTestBaseModule : AbpModule
