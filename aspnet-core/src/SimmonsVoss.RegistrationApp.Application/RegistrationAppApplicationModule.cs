@@ -1,6 +1,4 @@
-﻿using Volo.Abp.Account;
-using Volo.Abp.AutoMapper;
-using Volo.Abp.Identity;
+﻿using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.SettingManagement;
 
@@ -8,9 +6,7 @@ namespace SimmonsVoss.RegistrationApp;
 
 [DependsOn(
     typeof(RegistrationAppDomainModule),
-    typeof(AbpAccountApplicationModule),
     typeof(RegistrationAppApplicationContractsModule),
-    typeof(AbpIdentityApplicationModule),
     typeof(AbpSettingManagementApplicationModule)
     )]
 public class RegistrationAppApplicationModule : AbpModule

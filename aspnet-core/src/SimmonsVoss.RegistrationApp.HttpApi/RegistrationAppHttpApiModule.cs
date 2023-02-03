@@ -1,7 +1,5 @@
 ﻿using Localization.Resources.AbpUi;
 using SimmonsVoss.RegistrationApp.Localization;
-using Volo.Abp.Account;
-using Volo.Abp.Identity;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.SettingManagement;
@@ -10,8 +8,6 @@ namespace SimmonsVoss.RegistrationApp;
 
 [DependsOn(
     typeof(RegistrationAppApplicationContractsModule),
-    typeof(AbpAccountHttpApiModule),
-    typeof(AbpIdentityHttpApiModule),
     typeof(AbpSettingManagementHttpApiModule)
     )]
 public class RegistrationAppHttpApiModule : AbpModule
