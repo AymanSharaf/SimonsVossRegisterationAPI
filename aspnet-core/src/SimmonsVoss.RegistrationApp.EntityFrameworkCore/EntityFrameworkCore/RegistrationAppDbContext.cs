@@ -3,9 +3,7 @@ using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
-using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 
 namespace SimmonsVoss.RegistrationApp.EntityFrameworkCore;
@@ -53,8 +51,7 @@ public class RegistrationAppDbContext :
         builder.ConfigureSettingManagement();
         builder.ConfigureBackgroundJobs();
         builder.ConfigureAuditLogging();
-        builder.ConfigureOpenIddict();
-        builder.ConfigureFeatureManagement();
+        //builder.ConfigureOpenIddict();
 
         /* Configure your own tables/entities inside here */
 

@@ -1,7 +1,6 @@
 ﻿using SimmonsVoss.RegistrationApp.Localization;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
-using Volo.Abp.FeatureManagement;
 using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
@@ -15,7 +14,6 @@ namespace SimmonsVoss.RegistrationApp;
 [DependsOn(
     typeof(AbpAuditLoggingDomainSharedModule),
     typeof(AbpBackgroundJobsDomainSharedModule),
-    typeof(AbpFeatureManagementDomainSharedModule),
     typeof(AbpOpenIddictDomainSharedModule),
     typeof(AbpSettingManagementDomainSharedModule)
     )]
