@@ -2,21 +2,17 @@
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
-using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
-using Volo.Abp.Identity.EntityFrameworkCore;
 using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 
 namespace SimmonsVoss.RegistrationApp.EntityFrameworkCore;
 
-[ReplaceDbContext(typeof(IIdentityDbContext))]
 [ConnectionStringName("Default")]
 public class RegistrationAppDbContext :
-    AbpDbContext<RegistrationAppDbContext>,
-    IIdentityDbContext
+    AbpDbContext<RegistrationAppDbContext>
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
@@ -57,7 +53,6 @@ public class RegistrationAppDbContext :
         builder.ConfigureSettingManagement();
         builder.ConfigureBackgroundJobs();
         builder.ConfigureAuditLogging();
-        builder.ConfigureIdentity();
         builder.ConfigureOpenIddict();
         builder.ConfigureFeatureManagement();
 

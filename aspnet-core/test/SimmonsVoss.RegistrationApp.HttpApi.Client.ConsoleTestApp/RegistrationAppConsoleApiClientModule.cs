@@ -1,17 +1,15 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Polly;
+using System;
 using Volo.Abp.Autofac;
 using Volo.Abp.Http.Client;
-using Volo.Abp.Http.Client.IdentityModel;
 using Volo.Abp.Modularity;
 
 namespace SimmonsVoss.RegistrationApp.HttpApi.Client.ConsoleTestApp;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(RegistrationAppHttpApiClientModule),
-    typeof(AbpHttpClientIdentityModelModule)
+    typeof(RegistrationAppHttpApiClientModule)
     )]
 public class RegistrationAppConsoleApiClientModule : AbpModule
 {
