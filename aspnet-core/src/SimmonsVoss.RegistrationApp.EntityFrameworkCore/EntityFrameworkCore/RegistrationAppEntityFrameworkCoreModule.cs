@@ -4,14 +4,12 @@ using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.SqlServer;
 using Volo.Abp.Modularity;
-using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 
 namespace SimmonsVoss.RegistrationApp.EntityFrameworkCore;
 
 [DependsOn(
     typeof(RegistrationAppDomainModule),
-    typeof(AbpOpenIddictEntityFrameworkCoreModule),
     typeof(AbpSettingManagementEntityFrameworkCoreModule),
     typeof(AbpEntityFrameworkCoreSqlServerModule),
     typeof(AbpBackgroundJobsEntityFrameworkCoreModule),

@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SimmonsVoss.RegistrationApp.Features;
+using System.Reflection;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -13,22 +15,7 @@ public class RegistrationAppDbContext :
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
-    #region Entities from the modules
-
-    /* Notice: We only implemented IIdentityDbContext and ITenantManagementDbContext
-     * and replaced them for this DbContext. This allows you to perform JOIN
-     * queries for the entities of these modules over the repositories easily. You
-     * typically don't need that for other modules. But, if you need, you can
-     * implement the DbContext interface of the needed module and use ReplaceDbContext
-     * attribute just like IIdentityDbContext and ITenantManagementDbContext.
-     *
-     * More info: Replacing a DbContext of a module ensures that the related module
-     * uses this DbContext on runtime. Otherwise, it will use its own DbContext class.
-     */
-
-
-
-    #endregion
+    public DbSet<Feature> Features { get; set; }
 
     public RegistrationAppDbContext(DbContextOptions<RegistrationAppDbContext> options)
         : base(options)
@@ -39,6 +26,8 @@ public class RegistrationAppDbContext :
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        Assembly assemblyWithConfigurations = GetType().Assembly;
+        builder.ApplyConfigurationsFromAssembly(assemblyWithConfigurations);
 
         /* Include modules to your migration db context */
         builder.ConfigureSettingManagement();
