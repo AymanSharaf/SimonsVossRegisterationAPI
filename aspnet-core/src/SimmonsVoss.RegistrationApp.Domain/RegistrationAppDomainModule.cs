@@ -10,8 +10,6 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.OpenIddict;
-using Volo.Abp.PermissionManagement.Identity;
-using Volo.Abp.PermissionManagement.OpenIddict;
 using Volo.Abp.SettingManagement;
 
 namespace SimmonsVoss.RegistrationApp;
@@ -23,8 +21,6 @@ namespace SimmonsVoss.RegistrationApp;
     typeof(AbpFeatureManagementDomainModule),
     typeof(AbpIdentityDomainModule),
     typeof(AbpOpenIddictDomainModule),
-    typeof(AbpPermissionManagementDomainOpenIddictModule),
-    typeof(AbpPermissionManagementDomainIdentityModule),
     typeof(AbpSettingManagementDomainModule),
     typeof(AbpEmailingModule)
 )]

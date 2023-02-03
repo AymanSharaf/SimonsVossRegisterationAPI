@@ -7,7 +7,6 @@ using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
 using Volo.Abp.OpenIddict;
-using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
@@ -20,7 +19,6 @@ namespace SimmonsVoss.RegistrationApp;
     typeof(AbpFeatureManagementDomainSharedModule),
     typeof(AbpIdentityDomainSharedModule),
     typeof(AbpOpenIddictDomainSharedModule),
-    typeof(AbpPermissionManagementDomainSharedModule),
     typeof(AbpSettingManagementDomainSharedModule)
     )]
 public class RegistrationAppDomainSharedModule : AbpModule

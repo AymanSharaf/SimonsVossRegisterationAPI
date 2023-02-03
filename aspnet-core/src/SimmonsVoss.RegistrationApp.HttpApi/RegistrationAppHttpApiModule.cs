@@ -5,7 +5,6 @@ using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
-using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.SettingManagement;
 
 namespace SimmonsVoss.RegistrationApp;
@@ -14,7 +13,6 @@ namespace SimmonsVoss.RegistrationApp;
     typeof(RegistrationAppApplicationContractsModule),
     typeof(AbpAccountHttpApiModule),
     typeof(AbpIdentityHttpApiModule),
-    typeof(AbpPermissionManagementHttpApiModule),
     typeof(AbpFeatureManagementHttpApiModule),
     typeof(AbpSettingManagementHttpApiModule)
     )]

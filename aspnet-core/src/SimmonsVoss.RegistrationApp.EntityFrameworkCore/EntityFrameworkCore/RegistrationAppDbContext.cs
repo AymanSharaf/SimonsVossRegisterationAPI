@@ -8,7 +8,6 @@ using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
 using Volo.Abp.OpenIddict.EntityFrameworkCore;
-using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 
 namespace SimmonsVoss.RegistrationApp.EntityFrameworkCore;
@@ -55,8 +54,6 @@ public class RegistrationAppDbContext :
         base.OnModelCreating(builder);
 
         /* Include modules to your migration db context */
-
-        builder.ConfigurePermissionManagement();
         builder.ConfigureSettingManagement();
         builder.ConfigureBackgroundJobs();
         builder.ConfigureAuditLogging();
