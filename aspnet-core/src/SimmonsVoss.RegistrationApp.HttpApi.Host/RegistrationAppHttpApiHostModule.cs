@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Medallion.Threading;
 using Medallion.Threading.Redis;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -12,19 +8,20 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SimmonsVoss.RegistrationApp.EntityFrameworkCore;
-using SimmonsVoss.RegistrationApp.MultiTenancy;
-using StackExchange.Redis;
 using Microsoft.OpenApi.Models;
+using SimmonsVoss.RegistrationApp.EntityFrameworkCore;
+using StackExchange.Redis;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
-using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.DistributedLocking;
-using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
@@ -36,7 +33,6 @@ namespace SimmonsVoss.RegistrationApp;
     typeof(AbpAutofacModule),
     typeof(AbpCachingStackExchangeRedisModule),
     typeof(AbpDistributedLockingModule),
-    typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
     typeof(RegistrationAppApplicationModule),
     typeof(RegistrationAppEntityFrameworkCoreModule),
     typeof(AbpAspNetCoreSerilogModule),
@@ -186,11 +182,6 @@ public class RegistrationAppHttpApiHostModule : AbpModule
         app.UseRouting();
         app.UseCors();
         app.UseAuthentication();
-
-        if (MultiTenancyConsts.IsEnabled)
-        {
-            app.UseMultiTenancy();
-        }
 
         app.UseAuthorization();
 

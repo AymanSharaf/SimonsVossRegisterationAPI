@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
-using Volo.Abp.Uow;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
@@ -11,7 +9,6 @@ using Volo.Abp.Modularity;
 using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
-using Volo.Abp.TenantManagement.EntityFrameworkCore;
 
 namespace SimmonsVoss.RegistrationApp.EntityFrameworkCore;
 
@@ -24,7 +21,6 @@ namespace SimmonsVoss.RegistrationApp.EntityFrameworkCore;
     typeof(AbpEntityFrameworkCoreSqlServerModule),
     typeof(AbpBackgroundJobsEntityFrameworkCoreModule),
     typeof(AbpAuditLoggingEntityFrameworkCoreModule),
-    typeof(AbpTenantManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule)
     )]
 public class RegistrationAppEntityFrameworkCoreModule : AbpModule
@@ -38,15 +34,15 @@ public class RegistrationAppEntityFrameworkCoreModule : AbpModule
     {
         context.Services.AddAbpDbContext<RegistrationAppDbContext>(options =>
         {
-                /* Remove "includeAllEntities: true" to create
-                 * default repositories only for aggregate roots */
+            /* Remove "includeAllEntities: true" to create
+             * default repositories only for aggregate roots */
             options.AddDefaultRepositories(includeAllEntities: true);
         });
 
         Configure<AbpDbContextOptions>(options =>
         {
-                /* The main point to change your DBMS.
-                 * See also RegistrationAppMigrationsDbContextFactory for EF Core tooling. */
+            /* The main point to change your DBMS.
+             * See also RegistrationAppMigrationsDbContextFactory for EF Core tooling. */
             options.UseSqlServer();
         });
 

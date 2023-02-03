@@ -5,7 +5,6 @@ using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
-using Volo.Abp.TenantManagement;
 
 namespace SimmonsVoss.RegistrationApp;
 
@@ -15,7 +14,6 @@ namespace SimmonsVoss.RegistrationApp;
     typeof(RegistrationAppApplicationContractsModule),
     typeof(AbpIdentityApplicationModule),
     typeof(AbpPermissionManagementApplicationModule),
-    typeof(AbpTenantManagementApplicationModule),
     typeof(AbpFeatureManagementApplicationModule),
     typeof(AbpSettingManagementApplicationModule)
     )]

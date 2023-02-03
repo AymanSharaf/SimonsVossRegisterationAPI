@@ -13,7 +13,6 @@ using Volo.Abp.OpenIddict;
 using Volo.Abp.PermissionManagement.Identity;
 using Volo.Abp.PermissionManagement.OpenIddict;
 using Volo.Abp.SettingManagement;
-using Volo.Abp.TenantManagement;
 
 namespace SimmonsVoss.RegistrationApp;
 
@@ -27,7 +26,6 @@ namespace SimmonsVoss.RegistrationApp;
     typeof(AbpPermissionManagementDomainOpenIddictModule),
     typeof(AbpPermissionManagementDomainIdentityModule),
     typeof(AbpSettingManagementDomainModule),
-    typeof(AbpTenantManagementDomainModule),
     typeof(AbpEmailingModule)
 )]
 public class RegistrationAppDomainModule : AbpModule
