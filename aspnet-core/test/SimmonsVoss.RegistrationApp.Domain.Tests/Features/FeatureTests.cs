@@ -1,4 +1,5 @@
 ﻿using Shouldly;
+using System;
 using Xunit;
 
 namespace SimmonsVoss.RegistrationApp.Features
@@ -13,13 +14,24 @@ namespace SimmonsVoss.RegistrationApp.Features
         [Fact]
         public void Should_Create_Valid_Feature()
         {
-            var feature = Feature.CreateNew("New Feature");
+            var featureName = "New Feature";
+            var feature = Feature.CreateNew(featureName);
 
             feature.ShouldNotBeNull();
-            feature.Id.ShouldNotBeNull();
+            feature.Id.Id.ShouldNotBe(Guid.Empty);
             feature.Name.ShouldNotBeNull();
+            feature.Name.Value.ShouldBe(featureName);
 
 
+        }
+
+        [Fact]
+        public void Should_Fail_If_FeatureName_Is_Empty()
+        {
+            Should.Throw<ArgumentException>(() =>
+            {
+                Feature.CreateNew("");
+            });
         }
     }
 }
