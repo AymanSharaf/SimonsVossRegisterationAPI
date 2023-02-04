@@ -7,9 +7,9 @@ namespace SimmonsVoss.RegistrationApp.Licenses
     public class LicenseKey : ValueObject
     {
         public string Value { get; private set; }
-        public LicenseKey(string key)
+        public LicenseKey(string value)
         {
-            Value = Guard.Against.NullOrEmpty(key); // Should also check for valid format
+            Value = Guard.Against.NullOrEmpty(value); // Should also check for valid format
         }
 
         protected override IEnumerable<object> GetAtomicValues()

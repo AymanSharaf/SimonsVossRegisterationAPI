@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimmonsVoss.RegistrationApp.Features;
+using SimmonsVoss.RegistrationApp.Licenses;
+using SimmonsVoss.RegistrationApp.Packages;
 using System.Reflection;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -16,6 +18,8 @@ public class RegistrationAppDbContext :
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
     public DbSet<Feature> Features { get; set; }
+    public DbSet<Package> Packages { get; set; }
+    public DbSet<License> Licenses { get; set; }
 
     public RegistrationAppDbContext(DbContextOptions<RegistrationAppDbContext> options)
         : base(options)

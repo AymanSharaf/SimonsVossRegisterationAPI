@@ -5,7 +5,7 @@ namespace SimmonsVoss.RegistrationApp.Licenses
 {
     public class License : AuditedAggregateRoot<LicenseId>
     {
-        public LicenseKey Key { get; private set; }
+        public LicenseKey LicenseKey { get; private set; }
         public LicenseStatus Status { get; private set; }
         public LicenseSignature Signature { get; set; }
         public PackageId PackageId { get; private set; }
@@ -20,7 +20,7 @@ namespace SimmonsVoss.RegistrationApp.Licenses
             return new License
             {
                 Id = LicenseId.GenerateNew(),
-                Key = new LicenseKey(key),
+                LicenseKey = new LicenseKey(key),
                 Status = LicenseStatus.New,
                 PackageId = packageId
             };

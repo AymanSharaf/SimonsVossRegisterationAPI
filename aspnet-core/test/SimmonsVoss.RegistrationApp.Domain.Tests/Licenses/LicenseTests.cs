@@ -17,7 +17,7 @@ namespace SimmonsVoss.RegistrationApp.Licenses
 
             license.ShouldNotBeNull();
             license.Status.ShouldBe(LicenseStatus.New);
-            license.Key.Value.ShouldBeEquivalentTo(key);
+            license.LicenseKey.Value.ShouldBeEquivalentTo(key);
         }
 
         [Fact]
