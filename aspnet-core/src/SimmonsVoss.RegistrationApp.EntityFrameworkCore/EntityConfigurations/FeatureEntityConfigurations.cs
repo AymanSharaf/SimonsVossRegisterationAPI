@@ -13,7 +13,8 @@ namespace SimmonsVoss.RegistrationApp.EntityConfigurations
             builder.Property(x => x.Id).HasConversion(x => x.Id, l => FeatureId.FromExisting(l))
                                         .HasColumnName("Id").IsRequired();
 
-            builder.OwnsOne(c => c.Name, b => { b.Property(p => p.Value).HasMaxLength(250).HasColumnName("Name"); });
+            builder.OwnsOne(c => c.Name, b => { b.Property(p => p.Value).HasMaxLength(250).HasColumnName("Name").IsRequired(); });
+
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using SimmonsVoss.RegistrationApp.Features;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Volo.Abp.Domain.Entities;
@@ -10,15 +9,15 @@ namespace SimmonsVoss.RegistrationApp.Packages
     {
         public PackageName Name { get; private set; }
 
-        private List<FeatureId> _featureIds;
-        public IReadOnlyList<FeatureId> FeatureIds => _featureIds;
+        private List<Feature> _features;
+        public IReadOnlyList<Feature> Features => _features;
 
         private Package()
         {
-            _featureIds = new List<FeatureId>();
+            _features = new List<Feature>();
         }
 
-        public static Package CreateNew(string name, List<Guid> featureIds)
+        public static Package CreateNew(string name, List<Feature> features)
         {
             var package = new Package()
             {
@@ -26,22 +25,21 @@ namespace SimmonsVoss.RegistrationApp.Packages
                 Name = new PackageName(name),
             };
 
-            featureIds?.ForEach(id =>
+            features?.ForEach(feature =>
             {
-                package.AddFeature(id);
+                package.AddFeature(feature);
             });
 
             return package;
         }
 
-        public void AddFeature(Guid featureId)
+        public void AddFeature(Feature feature)
         {
-            var id = FeatureId.FromExisting(featureId);
-            var isFeatureIdAlreadyUsedInPackage = _featureIds.Any(i => i.ValueEquals(id));
+            var isFeatureAlreadyUsedInPackage = _features.Any(f => f.Equals(feature));
 
-            if (!isFeatureIdAlreadyUsedInPackage)
+            if (!isFeatureAlreadyUsedInPackage)
             {
-                _featureIds.Add(FeatureId.FromExisting(featureId));
+                _features.Add(feature);
             }
         }
     }

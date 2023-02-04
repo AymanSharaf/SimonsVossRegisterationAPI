@@ -5,7 +5,10 @@
         public FeatureId Id { get; private set; }
         public FeatureName Name { get; private set; }
 
-        private Feature() { }
+        private Feature()
+        {
+
+        }
 
         public static Feature CreateNew(string name)
         {
