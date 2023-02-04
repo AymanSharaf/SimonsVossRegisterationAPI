@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimmonsVoss.RegistrationApp.Features;
+using SimmonsVoss.RegistrationApp.LicenseRegisterationRequests;
 using SimmonsVoss.RegistrationApp.Licenses;
 using SimmonsVoss.RegistrationApp.Packages;
 using System.Reflection;
@@ -20,6 +21,7 @@ public class RegistrationAppDbContext :
     public DbSet<Feature> Features { get; set; }
     public DbSet<Package> Packages { get; set; }
     public DbSet<License> Licenses { get; set; }
+    public DbSet<LicenseRegistrationRequest> LicenseRegisterationRequests { get; set; }
 
     public RegistrationAppDbContext(DbContextOptions<RegistrationAppDbContext> options)
         : base(options)

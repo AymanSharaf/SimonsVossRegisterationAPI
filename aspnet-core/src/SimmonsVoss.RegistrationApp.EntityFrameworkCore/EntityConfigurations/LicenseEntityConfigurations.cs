@@ -5,7 +5,7 @@ using SimmonsVoss.RegistrationApp.Packages;
 
 namespace SimmonsVoss.RegistrationApp.EntityConfigurations
 {
-    internal class LicenseEntityConfiguration : IEntityTypeConfiguration<License>
+    internal class LicenseEntityConfigurations : IEntityTypeConfiguration<License>
     {
         public void Configure(EntityTypeBuilder<License> builder)
         {
