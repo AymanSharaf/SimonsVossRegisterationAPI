@@ -25,14 +25,12 @@ namespace SimmonsVoss.RegistrationApp.EntityConfigurations
           j => j
               .HasOne<Feature>()
               .WithMany()
-              .HasForeignKey("FeatureId")//.HasPrincipalKey("Id")
-                                         //.HasConstraintName("FK_PackageFeature_Features_FeatureId")
+              .HasForeignKey("FeatureId")
               .OnDelete(DeleteBehavior.Cascade),
           j => j
               .HasOne<Package>()
               .WithMany()
-              .HasForeignKey("PackageId")//.HasPrincipalKey("Id")
-                                         //.HasConstraintName("FK_PackageFeature_Packages_PackageId")
+              .HasForeignKey("PackageId")
               .OnDelete(DeleteBehavior.ClientCascade));
 
         }
