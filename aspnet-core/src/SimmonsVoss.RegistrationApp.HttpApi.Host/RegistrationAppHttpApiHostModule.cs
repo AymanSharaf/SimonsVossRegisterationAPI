@@ -19,8 +19,6 @@ using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.Caching;
-using Volo.Abp.Caching.StackExchangeRedis;
-using Volo.Abp.DistributedLocking;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
@@ -30,8 +28,7 @@ namespace SimmonsVoss.RegistrationApp;
 [DependsOn(
     typeof(RegistrationAppHttpApiModule),
     typeof(AbpAutofacModule),
-    typeof(AbpCachingStackExchangeRedisModule),
-    typeof(AbpDistributedLockingModule),
+    //typeof(AbpCachingStackExchangeRedisModule),
     typeof(RegistrationAppApplicationModule),
     typeof(RegistrationAppEntityFrameworkCoreModule),
     typeof(AbpAspNetCoreSerilogModule),
@@ -46,7 +43,7 @@ public class RegistrationAppHttpApiHostModule : AbpModule
 
         ConfigureConventionalControllers();
         ConfigureAuthentication(context, configuration);
-        ConfigureCache(configuration);
+        //ConfigureCache(configuration);
         ConfigureVirtualFileSystem(context);
         ConfigureDataProtection(context, configuration, hostingEnvironment);
         //ConfigureDistributedLocking(context, configuration);
