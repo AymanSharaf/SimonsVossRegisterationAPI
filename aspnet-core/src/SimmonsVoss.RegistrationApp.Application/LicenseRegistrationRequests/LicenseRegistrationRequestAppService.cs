@@ -24,11 +24,11 @@ namespace SimmonsVoss.RegistrationApp.LicenseRegistrationRequests
         }
         public async virtual Task<CreateLicenseRegistrationRequestResultDto> CreateAsync(CreateLicenseRegistrationRequestInputDto input)
         {
-            var license = await _licenseRepository.GetAsync(l => l.LicenseKey.Value.Equals(input.LicenseKey) &&
+            var license = await _licenseRepository.FirstOrDefaultAsync(l => l.LicenseKey.Value.Equals(input.LicenseKey) &&
                                                             l.Status == LicenseStatus.New);
             if (license is null)
             {
-                throw new BusinessException(message: "Invalid License Key");
+                throw new UserFriendlyException(message: "Invalid License Key");
             }
 
             var request = LicenseRegistrationRequest.CreateNew(input.Address, input.ComapnyName,
