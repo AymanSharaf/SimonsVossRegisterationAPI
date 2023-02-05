@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "LicenseSignatureGenerator.Grpc";
+
+service LicenseSignatureGenerator {
+ rpc SignLicense(LicenseSignatureGenerationRequestMessage) returns (LicenseSignatureGenerationResponseMessage);
+}
+
+message LicenseSignatureGenerationRequestMessage {
+	string LicenseId = 1;
+	string Email = 2;
+	string CompanyName = 3;
+}
+
+message LicenseSignatureGenerationResponseMessage {
+	string LicenseId = 1;
+	string Signature = 2;
+}
