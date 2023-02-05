@@ -1,8 +1,9 @@
-﻿namespace SimmonsVoss.RegistrationApp.Features
+﻿using Volo.Abp.Domain.Entities;
+
+namespace SimmonsVoss.RegistrationApp.Features
 {
-    public class Feature
+    public class Feature : Entity<FeatureId>
     {
-        public FeatureId Id { get; private set; }
         public FeatureName Name { get; private set; }
 
         private Feature()

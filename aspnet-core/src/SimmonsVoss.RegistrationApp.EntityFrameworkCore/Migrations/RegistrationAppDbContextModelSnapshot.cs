@@ -36,7 +36,7 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
                     b.HasIndex("PackageId");
 
-                    b.ToTable("PackageFeatures");
+                    b.ToTable("PackageFeatures", (string)null);
                 });
 
             modelBuilder.Entity("SimmonsVoss.RegistrationApp.Features.Feature", b =>
@@ -521,7 +521,7 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
             modelBuilder.Entity("SimmonsVoss.RegistrationApp.Features.Feature", b =>
                 {
-                    b.OwnsOne("SimmonsVoss.RegistrationApp.Features.FeatureName", "Name", b1 =>
+                    b.OwnsOne("SimmonsVoss.RegistrationApp.Features.Feature.Name#SimmonsVoss.RegistrationApp.Features.FeatureName", "Name", b1 =>
                         {
                             b1.Property<Guid>("FeatureId")
                                 .HasColumnType("uniqueidentifier");
@@ -534,7 +534,7 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
                             b1.HasKey("FeatureId");
 
-                            b1.ToTable("Features");
+                            b1.ToTable("Features", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("FeatureId");
@@ -549,7 +549,7 @@ namespace SimmonsVoss.RegistrationApp.Migrations
                         .WithMany()
                         .HasForeignKey("LicenseId");
 
-                    b.OwnsOne("SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.Address", "Address", b1 =>
+                    b.OwnsOne("SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.LicenseRegistrationRequest.Address#SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.Address", "Address", b1 =>
                         {
                             b1.Property<Guid>("LicenseRegistrationRequestId")
                                 .HasColumnType("uniqueidentifier");
@@ -562,13 +562,13 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
                             b1.HasKey("LicenseRegistrationRequestId");
 
-                            b1.ToTable("LicenseRegistrationRequests");
+                            b1.ToTable("LicenseRegistrationRequests", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("LicenseRegistrationRequestId");
                         });
 
-                    b.OwnsOne("SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.ComapnyName", "ComapnyName", b1 =>
+                    b.OwnsOne("SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.LicenseRegistrationRequest.ComapnyName#SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.ComapnyName", "ComapnyName", b1 =>
                         {
                             b1.Property<Guid>("LicenseRegistrationRequestId")
                                 .HasColumnType("uniqueidentifier");
@@ -581,13 +581,13 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
                             b1.HasKey("LicenseRegistrationRequestId");
 
-                            b1.ToTable("LicenseRegistrationRequests");
+                            b1.ToTable("LicenseRegistrationRequests", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("LicenseRegistrationRequestId");
                         });
 
-                    b.OwnsOne("SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.ContactPerson", "ContactPerson", b1 =>
+                    b.OwnsOne("SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.LicenseRegistrationRequest.ContactPerson#SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.ContactPerson", "ContactPerson", b1 =>
                         {
                             b1.Property<Guid>("LicenseRegistrationRequestId")
                                 .HasColumnType("uniqueidentifier");
@@ -600,13 +600,13 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
                             b1.HasKey("LicenseRegistrationRequestId");
 
-                            b1.ToTable("LicenseRegistrationRequests");
+                            b1.ToTable("LicenseRegistrationRequests", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("LicenseRegistrationRequestId");
                         });
 
-                    b.OwnsOne("SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.Email", "Email", b1 =>
+                    b.OwnsOne("SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.LicenseRegistrationRequest.Email#SimmonsVoss.RegistrationApp.LicenseRegisterationRequests.Email", "Email", b1 =>
                         {
                             b1.Property<Guid>("LicenseRegistrationRequestId")
                                 .HasColumnType("uniqueidentifier");
@@ -619,7 +619,7 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
                             b1.HasKey("LicenseRegistrationRequestId");
 
-                            b1.ToTable("LicenseRegistrationRequests");
+                            b1.ToTable("LicenseRegistrationRequests", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("LicenseRegistrationRequestId");
@@ -640,7 +640,7 @@ namespace SimmonsVoss.RegistrationApp.Migrations
                         .WithMany()
                         .HasForeignKey("PackageId");
 
-                    b.OwnsOne("SimmonsVoss.RegistrationApp.Licenses.LicenseKey", "LicenseKey", b1 =>
+                    b.OwnsOne("SimmonsVoss.RegistrationApp.Licenses.License.LicenseKey#SimmonsVoss.RegistrationApp.Licenses.LicenseKey", "LicenseKey", b1 =>
                         {
                             b1.Property<Guid>("LicenseId")
                                 .HasColumnType("uniqueidentifier");
@@ -653,13 +653,13 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
                             b1.HasKey("LicenseId");
 
-                            b1.ToTable("Licenses");
+                            b1.ToTable("Licenses", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("LicenseId");
                         });
 
-                    b.OwnsOne("SimmonsVoss.RegistrationApp.Licenses.LicenseSignature", "Signature", b1 =>
+                    b.OwnsOne("SimmonsVoss.RegistrationApp.Licenses.License.Signature#SimmonsVoss.RegistrationApp.Licenses.LicenseSignature", "Signature", b1 =>
                         {
                             b1.Property<Guid>("LicenseId")
                                 .HasColumnType("uniqueidentifier");
@@ -672,7 +672,7 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
                             b1.HasKey("LicenseId");
 
-                            b1.ToTable("Licenses");
+                            b1.ToTable("Licenses", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("LicenseId");
@@ -685,7 +685,7 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
             modelBuilder.Entity("SimmonsVoss.RegistrationApp.Packages.Package", b =>
                 {
-                    b.OwnsOne("SimmonsVoss.RegistrationApp.Packages.PackageName", "Name", b1 =>
+                    b.OwnsOne("SimmonsVoss.RegistrationApp.Packages.Package.Name#SimmonsVoss.RegistrationApp.Packages.PackageName", "Name", b1 =>
                         {
                             b1.Property<Guid>("PackageId")
                                 .HasColumnType("uniqueidentifier");
@@ -698,7 +698,7 @@ namespace SimmonsVoss.RegistrationApp.Migrations
 
                             b1.HasKey("PackageId");
 
-                            b1.ToTable("Packages");
+                            b1.ToTable("Packages", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("PackageId");
